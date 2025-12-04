@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aufmarket - Riset Cerdas, Dagang Berkah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#ecfdf5',
+                100: '#d1fae5',
+                500: '#10b981', // Emerald 500
+                600: '#059669', // Emerald 600
+                700: '#047857', // Emerald 700
+                900: '#064e3b', // Emerald 900
+              },
+              slate: {
+                850: '#1e293b',
+                900: '#0f172a',
+              }
+            },
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            animation: {
+              'spin-slow': 'spin 3s linear infinite',
+              'power-pulse': 'power-pulse 2s infinite',
+              'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8fafc;
+        color: #1e293b;
+        overflow-x: hidden;
+      }
+
+      /* Soft Dot Background */
+      .bg-dots {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2;
+        background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.4;
+      }
+
+      /* Subtle gradient blobs */
+      .blob-1 {
+        position: fixed;
+        top: -20%;
+        right: -10%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+        z-index: -1;
+        filter: blur(80px);
+      }
+      
+      .blob-2 {
+        position: fixed;
+        bottom: -20%;
+        left: -10%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+        z-index: -1;
+        filter: blur(80px);
+      }
+
+      @keyframes power-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+        70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      }
+
+      @keyframes heartbeat {
+        0% { transform: scale(1); }
+        15% { transform: scale(1.25); }
+        30% { transform: scale(1); }
+        45% { transform: scale(1.15); }
+        60% { transform: scale(1); }
+        100% { transform: scale(1); }
+      }
+
+      .animate-power-pulse {
+        animation: power-pulse 2s infinite;
+      }
+
+      .animate-heartbeat {
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(226, 232, 240, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+
+      .animate-slide-up {
+        animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="bg-dots"></div>
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

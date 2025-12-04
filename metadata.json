@@ -1,0 +1,7 @@
+{
+  "name": "Aufmarket - Riset Cerdas, Dagang Berkah v.1.1",
+  "description": "Platform riset pasar modern ala Abdurrahman bin Auf. Temukan pembeli dan supplier tangan pertama dengan analisis AI.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
